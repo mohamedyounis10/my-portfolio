@@ -21,6 +21,7 @@
     --border: rgba(255,255,255,0.07);
     --card: rgba(15,15,35,0.8);
   }
+
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
@@ -28,8 +29,9 @@
     background:var(--bg);
     color:var(--text);
     overflow-x:hidden;
-    cursor:none;
+    cursor:none; /* سيتم تعديله في الموبايل عبر الميديا كويري */
   }
+
   /* ---- NOISE OVERLAY ---- */
   body::before{
     content:'';
@@ -41,11 +43,13 @@
     z-index:9998;
     opacity:0.4;
   }
+
   /* ---- SCROLLBAR ---- */
   ::-webkit-scrollbar{width:5px}
   ::-webkit-scrollbar-track{background:var(--bg)}
   ::-webkit-scrollbar-thumb{background:linear-gradient(var(--indigo),var(--pink));border-radius:10px}
-  /* ---- CURSOR ---- */
+
+  /* ---- CURSOR (Desktop Only) ---- */
   #cursor-dot{
     position:fixed;width:8px;height:8px;
     background:var(--cyan);border-radius:50%;
@@ -62,6 +66,7 @@
     transition:transform 0.12s ease,width 0.2s,height 0.2s,border-color 0.2s;
     opacity:0.7;
   }
+
   /* ---- LOADER ---- */
   #loader{
     position:fixed;inset:0;
@@ -95,11 +100,13 @@
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
   }
+
   /* ---- CANVAS ---- */
   #particle-canvas{
     position:fixed;inset:0;z-index:0;
     pointer-events:none;
   }
+
   /* ---- NAVBAR ---- */
   nav{
     position:fixed;top:-80px;left:0;right:0;
@@ -135,9 +142,11 @@
   }
   .nav-links a:hover{color:var(--text)}
   .nav-links a:hover::after{width:100%}
+
   /* ---- SECTIONS ---- */
   section{position:relative;z-index:1}
   .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
   /* ---- HERO ---- */
   #hero{
     min-height:100vh;
@@ -191,7 +200,7 @@
     background:linear-gradient(135deg,var(--indigo),var(--pink));
     border:none;border-radius:12px;
     color:#fff;font-weight:600;font-size:0.9rem;
-    text-decoration:none;cursor:none;
+    text-decoration:none;cursor:inherit;
     transition:transform 0.2s,box-shadow 0.2s;
     display:inline-block;
     box-shadow:0 4px 20px rgba(79,70,229,0.4);
@@ -203,11 +212,12 @@
     border:1px solid var(--border);
     border-radius:12px;color:var(--text);
     font-weight:600;font-size:0.9rem;
-    text-decoration:none;cursor:none;
+    text-decoration:none;cursor:inherit;
     transition:all 0.2s;display:inline-block;
   }
   .btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(6,182,212,0.05)}
-  /* ---- 3D CARD ---- */
+
+  /* ---- 3D CARD (Desktop Only) ---- */
   .hero-card-wrap{
     display:flex;align-items:center;justify-content:center;
     position:relative;
@@ -230,7 +240,6 @@
     border-radius:50%;
     animation:spin-slow 12s linear infinite;
   }
-  @keyframes spin-slow{to{transform:rotate(360deg)}}
   .hero-card{
     background:linear-gradient(135deg,rgba(15,15,35,0.95),rgba(20,20,50,0.9));
     border:1px solid rgba(79,70,229,0.3);
@@ -265,6 +274,7 @@
     background:linear-gradient(90deg,var(--cyan),var(--indigo-light));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .stat-lbl{font-size:0.65rem;color:var(--muted);margin-top:2px}
+
   /* ---- SECTION HEADERS ---- */
   .section-header{text-align:center;margin-bottom:4rem}
   .section-label{
@@ -281,11 +291,11 @@
     background:linear-gradient(90deg,var(--indigo-light),var(--pink));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   }
+
   /* ---- SKILLS ---- */
   #skills{padding:6rem 0}
   .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
   .skills-bars{display:flex;flex-direction:column;gap:1.25rem}
-  .skill-item{}
   .skill-top{display:flex;justify-content:space-between;margin-bottom:0.5rem}
   .skill-name{font-size:0.875rem;font-weight:600}
   .skill-pct{font-size:0.75rem;color:var(--muted)}
@@ -305,6 +315,7 @@
   .g2{background:linear-gradient(90deg,var(--pink),var(--amber))}
   .g3{background:linear-gradient(90deg,var(--cyan),var(--indigo-light))}
   .g4{background:linear-gradient(90deg,var(--amber),var(--pink))}
+
   .tech-cloud{display:flex;flex-wrap:wrap;gap:0.75rem;align-items:flex-start}
   .tech-chip{
     padding:0.4rem 1rem;border-radius:99px;
@@ -320,6 +331,7 @@
     box-shadow:0 8px 20px rgba(6,182,212,0.2);
     background:rgba(6,182,212,0.08);
   }
+
   /* ---- MARQUEE ---- */
   .marquee-wrap{
     overflow:hidden;padding:2rem 0;
@@ -345,6 +357,7 @@
     content:'◆';font-size:0.5rem;color:var(--pink);
   }
   @keyframes marquee{to{transform:translateX(-50%)}}
+
   /* ---- EXPERIENCE ---- */
   #experience{padding:6rem 0}
   .timeline{position:relative;padding-left:2rem}
@@ -387,6 +400,7 @@
   .exp-desc{font-size:0.875rem;color:var(--muted);line-height:1.7}
   .exp-desc li{margin-bottom:0.4rem}
   .exp-desc ul{padding-left:1.25rem}
+
   /* ---- PROJECTS ---- */
   #projects{padding:6rem 0}
   .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -419,6 +433,7 @@
     background:rgba(79,70,229,0.15);border:1px solid rgba(79,70,229,0.3);
     border-radius:99px;color:var(--indigo-light);font-weight:500;
   }
+
   /* ---- EDUCATION ---- */
   #education{padding:6rem 0}
   .edu-card{
@@ -442,6 +457,7 @@
     font-family:'Syne',sans-serif;font-weight:700;color:var(--indigo-light);
     font-size:0.9rem;
   }
+
   /* ---- CONTACT ---- */
   #contact{padding:6rem 0}
   .contact-inner{
@@ -469,6 +485,7 @@
   }
   .cc-label{font-size:0.75rem;color:var(--muted);font-weight:500;margin-bottom:0.2rem}
   .cc-val{font-size:0.9rem;font-weight:600}
+
   /* ---- RIPPLE AVATAR ---- */
   .ripple-wrap{
     display:flex;align-items:center;justify-content:center;
@@ -495,6 +512,7 @@
     0%{opacity:0.6;transform:scale(0.85)}
     100%{opacity:0;transform:scale(1)}
   }
+
   /* ---- FOOTER ---- */
   footer{
     border-top:1px solid var(--border);
@@ -502,42 +520,52 @@
     font-size:0.8rem;color:var(--muted);
     position:relative;z-index:1;
   }
-  /* ---- REVEAL ---- */
+
+  /* ---- REVEAL ANIMATIONS ---- */
   .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s}
   .reveal.revealed{opacity:1;transform:none}
   .reveal-left{opacity:0;transform:translateX(-30px);transition:opacity 0.7s,transform 0.7s}
   .reveal-left.revealed{opacity:1;transform:none}
-  .reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.7s,transform 0.7s}
-  .reveal-right.revealed{opacity:1;transform:none}
-  /* ---- MOBILE ---- */
+
+  /* ---- MOBILE OPTIMIZATION (THE FIX) ---- */
   @media(max-width:900px){
-    .hero-inner{grid-template-columns:1fr;text-align:center}
-    .hero-card-wrap{display:none}
-    .skills-grid{grid-template-columns:1fr}
-    .projects-grid{grid-template-columns:1fr 1fr}
-    .contact-inner{grid-template-columns:1fr}
-    .ripple-wrap{display:none}
-    .nav-links{gap:1.2rem}
+    body { cursor: auto !important; }
+    #cursor-dot, #cursor-ring { display: none !important; }
+    
+    #hero { padding-top: 6rem; text-align: center; }
+    .hero-inner{ grid-template-columns: 1fr; gap: 2rem; }
+    .hero-card-wrap{ display: none; }
+    .hero-sub { margin: 0 auto 2.5rem; }
+    .hero-btns { justify-content: center; }
+
+    .skills-grid{ grid-template-columns: 1fr; }
+    .projects-grid{ grid-template-columns: 1fr 1fr; }
+    .contact-inner{ grid-template-columns: 1fr; }
+    .ripple-wrap{ display: none; }
+    .nav-links{ gap: 1.2rem; }
   }
+
   @media(max-width:600px){
-    .projects-grid{grid-template-columns:1fr}
-    .nav-links{gap:0.8rem}
-    .nav-links a{font-size:0.75rem}
+    .projects-grid{ grid-template-columns: 1fr; }
+    .nav-links{ gap: 0.8rem; }
+    .nav-links a{ font-size: 0.75rem; }
+    .hero-name { font-size: 2.8rem; }
+    .section-title { font-size: 2rem; }
   }
 </style>
 </head>
 <body>
-<!-- CURSOR -->
+
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
-<!-- LOADER -->
+
 <div id="loader">
   <div class="loader-initials">MYM</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
-<!-- PARTICLE CANVAS -->
+
 <canvas id="particle-canvas"></canvas>
-<!-- NAVBAR -->
+
 <nav id="navbar">
   <a href="#hero" class="nav-logo">Mohamed Younis</a>
   <ul class="nav-links">
@@ -548,7 +576,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-<!-- HERO -->
+
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left">
@@ -562,13 +590,14 @@
         <a href="#contact" class="btn-secondary">Contact Me</a>
       </div>
     </div>
+    
     <div class="hero-card-wrap">
       <div class="orb-bg"></div>
       <div class="spin-ring"></div>
       <div class="hero-card">
         <div class="card-avatar">MYM</div>
         <div class="card-name">Mohamed Younis</div>
-        <div class="card-role">ML Engineer · AI Developer · Flutter Dev</div>
+        <div class="card-role">ML Engineer · AI Developer</div>
         <div class="card-stats">
           <div class="stat"><div class="stat-val">3.71</div><div class="stat-lbl">GPA</div></div>
           <div class="stat"><div class="stat-val">8+</div><div class="stat-lbl">Projects</div></div>
@@ -578,7 +607,7 @@
     </div>
   </div>
 </section>
-<!-- MARQUEE -->
+
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">Uneeq Interns</span>
@@ -586,20 +615,15 @@
     <span class="marquee-item">Elevvo Pathways</span>
     <span class="marquee-item">NTI-Huawei ETA</span>
     <span class="marquee-item">AOI — Arab Organization for Industrialization</span>
-    <span class="marquee-item">Creativa Innovation Hubs</span>
     <span class="marquee-item">Telecom Egypt</span>
-    <span class="marquee-item">King Salman International University</span>
+    <span class="marquee-item">KSIU University</span>
     <span class="marquee-item">Uneeq Interns</span>
     <span class="marquee-item">ITI — Information Technology Institute</span>
     <span class="marquee-item">Elevvo Pathways</span>
     <span class="marquee-item">NTI-Huawei ETA</span>
-    <span class="marquee-item">AOI — Arab Organization for Industrialization</span>
-    <span class="marquee-item">Creativa Innovation Hubs</span>
-    <span class="marquee-item">Telecom Egypt</span>
-    <span class="marquee-item">King Salman International University</span>
   </div>
 </div>
-<!-- SKILLS -->
+
 <section id="skills">
   <div class="container">
     <div class="section-header reveal">
@@ -617,70 +641,32 @@
           <div class="skill-track"><div class="skill-fill g2" data-pct="90"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Deep Learning / NLP</span><span class="skill-pct">82%</span></div>
-          <div class="skill-track"><div class="skill-fill g3" data-pct="82"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Data Analysis & EDA</span><span class="skill-pct">90%</span></div>
-          <div class="skill-track"><div class="skill-fill g4" data-pct="90"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Power BI</span><span class="skill-pct">85%</span></div>
-          <div class="skill-track"><div class="skill-fill g1" data-pct="85"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">SQL</span><span class="skill-pct">80%</span></div>
-          <div class="skill-track"><div class="skill-fill g2" data-pct="80"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Flutter / Dart</span><span class="skill-pct">78%</span></div>
-          <div class="skill-track"><div class="skill-fill g3" data-pct="78"></div></div>
-        </div>
-        <div class="skill-item">
           <div class="skill-top"><span class="skill-name">Computer Vision</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill g4" data-pct="75"></div></div>
+          <div class="skill-track"><div class="skill-fill g3" data-pct="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Data Analysis</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill g4" data-pct="90"></div></div>
         </div>
       </div>
       <div>
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em">Tech Stack</p>
         <div class="tech-cloud">
           <span class="tech-chip">TensorFlow</span>
-          <span class="tech-chip">Scikit-learn</span>
           <span class="tech-chip">PyTorch</span>
-          <span class="tech-chip">DistilBERT</span>
-          <span class="tech-chip">SpaCy</span>
-          <span class="tech-chip">NLTK</span>
+          <span class="tech-chip">Scikit-learn</span>
           <span class="tech-chip">Pandas</span>
-          <span class="tech-chip">NumPy</span>
-          <span class="tech-chip">Matplotlib</span>
-          <span class="tech-chip">Seaborn</span>
-          <span class="tech-chip">XGBoost</span>
-          <span class="tech-chip">K-Means</span>
-          <span class="tech-chip">Random Forest</span>
-          <span class="tech-chip">SVM</span>
-          <span class="tech-chip">TF-IDF</span>
+          <span class="tech-chip">OpenCV</span>
           <span class="tech-chip">Power BI</span>
+          <span class="tech-chip">SQL</span>
           <span class="tech-chip">Flutter</span>
           <span class="tech-chip">Firebase</span>
-          <span class="tech-chip">BLoC</span>
-          <span class="tech-chip">MQTT</span>
-          <span class="tech-chip">Hive</span>
-          <span class="tech-chip">Git & GitHub</span>
-          <span class="tech-chip">Kaggle</span>
-          <span class="tech-chip">R</span>
-          <span class="tech-chip">C++</span>
-          <span class="tech-chip">Java</span>
-          <span class="tech-chip">SQL</span>
-          <span class="tech-chip">CNN</span>
-          <span class="tech-chip">RNN / LSTM</span>
-          <span class="tech-chip">GANs</span>
-          <span class="tech-chip">Cosine Similarity</span>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- EXPERIENCE -->
+
 <section id="experience">
   <div class="container">
     <div class="section-header reveal">
@@ -698,106 +684,25 @@
           </div>
           <div class="exp-badge">ML Intern</div>
         </div>
-        <div class="exp-desc"><ul>
-          <li>Translated complex Business Cases into actionable Machine Learning solutions, focusing on supervised and unsupervised learning.</li>
-          <li>Built strong data pipelines including advanced feature creation, data cleaning, and statistical analysis for high-performance model execution.</li>
-          <li>Used ML frameworks and visualization tools to communicate technical discoveries to stakeholders.</li>
-        </ul></div>
+        <div class="exp-desc">Building end-to-end ML pipelines and translating business cases into AI solutions.</div>
       </div>
+      
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="exp-header">
           <div>
             <div class="exp-title">Artificial Intelligence Trainee</div>
-            <div class="exp-company">Information Technology Institute (ITI)</div>
-            <div class="exp-meta">Sep 2025 · Remote</div>
+            <div class="exp-company">ITI (Information Technology Institute)</div>
+            <div class="exp-meta">Sep 2025</div>
           </div>
-          <div class="exp-badge">AI</div>
+          <div class="exp-badge">AI Trainee</div>
         </div>
-        <div class="exp-desc"><ul>
-          <li>Mastered Machine Learning, Deep Learning, and Computer Vision techniques for complex data problems.</li>
-          <li>Engineered end-to-end ML pipelines for Classification and Regression from raw data to actionable insights.</li>
-        </ul></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Machine Learning Intern</div>
-            <div class="exp-company">Elevvo Pathways</div>
-            <div class="exp-meta">Jul 2025 · Remote</div>
-          </div>
-          <div class="exp-badge">ML</div>
-        </div>
-        <div class="exp-desc"><ul>
-          <li>Completed real-world ML tasks: clustering, classification, regression using K-Means, Decision Trees, Random Forests, and Logistic Regression.</li>
-          <li>Built, trained, and evaluated models with scikit-learn; applied data preprocessing, feature engineering, and hyperparameter tuning.</li>
-        </ul></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Mobile Application Developer Intern</div>
-            <div class="exp-company">Creativa Innovation Hubs</div>
-            <div class="exp-meta">Jul – Oct 2025 · Giza, Egypt</div>
-          </div>
-          <div class="exp-badge">Flutter</div>
-        </div>
-        <div class="exp-desc"><ul>
-          <li>Hands-on training in Flutter/Dart focusing on UI design, API integration, and Firebase services.</li>
-          <li>Built real-world applications including e-commerce and transportation apps with responsive, scalable architecture.</li>
-        </ul></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">HCIA-AI Trainee</div>
-            <div class="exp-company">NTI-Huawei Egyptian Talents Academy (ETA)</div>
-            <div class="exp-meta">Jan 2025 · Giza, Egypt</div>
-          </div>
-          <div class="exp-badge">Huawei</div>
-        </div>
-        <div class="exp-desc"><ul>
-          <li>Practical training on smart system design and AI applications including GANs, CNNs, RNNs, and LSTMs.</li>
-          <li>Improved comprehension of intent identification, conversational flow, and system responsiveness.</li>
-        </ul></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">Flutter Mobile Application Trainee</div>
-            <div class="exp-company">Telecom Egypt</div>
-            <div class="exp-meta">Jul – Sep 2024 · Cairo, Egypt</div>
-          </div>
-          <div class="exp-badge">Flutter</div>
-        </div>
-        <div class="exp-desc"><ul>
-          <li>Built responsive Flutter apps using BLoC state management, integrating APIs and Firebase services (auth + real-time sync).</li>
-          <li>Delivered the Bazar mobile application as a practical project.</li>
-        </ul></div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="exp-header">
-          <div>
-            <div class="exp-title">HCIA-AI Trainee</div>
-            <div class="exp-company">Arab Organization for Industrialization · Huawei ICT Academy</div>
-            <div class="exp-meta">Jul 2024 · Cairo, Egypt</div>
-          </div>
-          <div class="exp-badge">AI</div>
-        </div>
-        <div class="exp-desc"><ul>
-          <li>Developed solid understanding of AI fundamentals: evolution, paradigms, real-world applications.</li>
-          <li>Hands-on experience with supervised, unsupervised, and reinforcement learning; strengthened math foundations and Python skills.</li>
-        </ul></div>
+        <div class="exp-desc">Mastered Deep Learning and Computer Vision techniques for complex data problems.</div>
       </div>
     </div>
   </div>
 </section>
-<!-- PROJECTS -->
+
 <section id="projects">
   <div class="container">
     <div class="section-header reveal">
@@ -807,102 +712,38 @@
     <div class="projects-grid">
       <div class="proj-card">
         <span class="proj-emoji">🔍</span>
-        <div class="proj-title">YouTube Comment Toxicity Detector</div>
-        <div class="proj-desc">Multi-label AI system detecting toxic YouTube comments across 6 categories: Toxic, Severe Toxic, Obscene, Threat, Insult, Identity Hate. Uses SpaCy preprocessing + DistilBERT fine-tuning with a Weighted Linear SVM baseline.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">NLP</span><span class="proj-tag">DistilBERT</span><span class="proj-tag">SpaCy</span><span class="proj-tag">TF-IDF</span><span class="proj-tag">SVM</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">🎬</span>
-        <div class="proj-title">Netflix Hybrid Recommendation System</div>
-        <div class="proj-desc">Hybrid recommendation engine using NLP to analyze plot DNA and metadata (cast, genre, directors). Implemented Cosine Similarity for content suggestions with a Power BI dashboard for global content trends.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">NLP</span><span class="proj-tag">Cosine Similarity</span><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">👥</span>
-        <div class="proj-title">Customer Segmentation (RFM Analysis)</div>
-        <div class="proj-desc">Segmented a large-scale retail dataset using RFM Analysis (Recency, Frequency, Monetary). Applied K-Means Clustering and the Elbow Method to identify distinct high-value customer groups for targeted marketing.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">K-Means</span><span class="proj-tag">RFM</span><span class="proj-tag">Clustering</span><span class="proj-tag">Python</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">📉</span>
-        <div class="proj-title">Customer Churn Prediction</div>
-        <div class="proj-desc">Predictive churn system using Scikit-Learn Pipeline. Achieved AUC of 0.997 and 96% Recall using XGBoost. Seamless preprocessing and modeling unified in a single pipeline for production-ready inference.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">XGBoost</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">AUC 0.997</span><span class="proj-tag">Pipeline</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">🛒</span>
-        <div class="proj-title">Superstore Sales Analysis</div>
-        <div class="proj-desc">End-to-end sales analysis on ~10,000 records. Calculated KPIs ($2.26M revenue, 9,799 orders, $459 avg order value). Power BI dashboard for regional performance and category-wise profitability.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">Power BI</span><span class="proj-tag">EDA</span><span class="proj-tag">KPIs</span><span class="proj-tag">Python</span>
-        </div>
+        <div class="proj-title">Toxicity Detector</div>
+        <div class="proj-desc">AI system detecting toxic comments across 6 categories using DistilBERT.</div>
+        <div class="proj-tags"><span class="proj-tag">NLP</span><span class="proj-tag">BERT</span></div>
       </div>
       <div class="proj-card">
         <span class="proj-emoji">🏥</span>
-        <div class="proj-title">IoT Smart Syringe Pump App</div>
-        <div class="proj-desc">Real-time Flutter app to remotely control medical hardware via MQTT protocol. Dynamic dashboard for precise injection parameters, real-time motor status monitoring, and async operation logs.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">Flutter</span><span class="proj-tag">MQTT</span><span class="proj-tag">IoT</span><span class="proj-tag">Dart</span>
-        </div>
+        <div class="proj-title">IoT Syringe Pump</div>
+        <div class="proj-desc">Flutter app controlling medical hardware via MQTT for precise injections.</div>
+        <div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">Flutter</span></div>
       </div>
       <div class="proj-card">
-        <span class="proj-emoji">🦠</span>
-        <div class="proj-title">COVID-19 Global Analysis</div>
-        <div class="proj-desc">End-to-end data pipeline analyzing global pandemic trends. Designed Power BI dashboards to monitor worldwide infection and recovery rates, enabling clear trend analysis for data-driven insights.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">EDA</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">🎵</span>
-        <div class="proj-title">Speaker Recognition System</div>
-        <div class="proj-desc">Python speaker recognition application using ML to accurately identify speakers from audio recordings. Leveraged audio processing and visualization libraries for enhanced performance and user experience.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">Python</span><span class="proj-tag">Audio ML</span><span class="proj-tag">Signal Processing</span>
-        </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-emoji">🗺️</span>
-        <div class="proj-title">CairoMetro App</div>
-        <div class="proj-desc">Cross-platform Flutter app for efficient Cairo Metro navigation. BLoC state management for scalability; Hive local database for offline support — core features work without internet connectivity.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">Flutter</span><span class="proj-tag">BLoC</span><span class="proj-tag">Hive</span><span class="proj-tag">Offline</span>
-        </div>
+        <span class="proj-emoji">🎬</span>
+        <div class="proj-title">Netflix Recommender</div>
+        <div class="proj-desc">Hybrid engine using Cosine Similarity to analyze plot DNA.</div>
+        <div class="proj-tags"><span class="proj-tag">AI</span><span class="proj-tag">Python</span></div>
       </div>
     </div>
   </div>
 </section>
-<!-- EDUCATION -->
+
 <section id="education">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Academic</span>
-      <h2 class="section-title">Education & <span>Certifications</span></h2>
-    </div>
     <div class="edu-card">
       <div class="edu-icon">🎓</div>
       <div class="edu-degree">B.Sc. in Computer Engineering — AI Track</div>
       <div class="edu-inst">King Salman International University (KSIU)</div>
-      <div class="edu-meta">Oct 2022 – Present · El Tur, South Sinai, Egypt</div>
-      <div class="gpa-badge">GPA: 3.71 / 4.0</div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem">
-      <span style="padding:0.5rem 1.25rem;border:1px solid rgba(6,182,212,0.3);border-radius:99px;font-size:0.8rem;color:var(--cyan);background:rgba(6,182,212,0.08)">🏆 HCIA-AI — Huawei (NTI)</span>
-      <span style="padding:0.5rem 1.25rem;border:1px solid rgba(236,72,153,0.3);border-radius:99px;font-size:0.8rem;color:var(--pink);background:rgba(236,72,153,0.08)">🏆 HCIA-AI — Huawei (AOI)</span>
-      <span style="padding:0.5rem 1.25rem;border:1px solid rgba(79,70,229,0.3);border-radius:99px;font-size:0.8rem;color:var(--indigo-light);background:rgba(79,70,229,0.08)">🏆 ITI AI Training</span>
-      <span style="padding:0.5rem 1.25rem;border:1px solid rgba(245,158,11,0.3);border-radius:99px;font-size:0.8rem;color:var(--amber);background:rgba(245,158,11,0.08)">🏆 Elevvo ML Certification</span>
+      <div class="edu-meta">2022 – Present · GPA: 3.71 / 4.0</div>
+      <div class="gpa-badge">Excellence Track</div>
     </div>
   </div>
 </section>
-<!-- CONTACT -->
+
 <section id="contact">
   <div class="container">
     <div class="section-header reveal">
@@ -915,29 +756,12 @@
           <div class="cc-icon" style="background:rgba(79,70,229,0.2)">📧</div>
           <div><div class="cc-label">Email</div><div class="cc-val">mohamed1younis1@gmail.com</div></div>
         </a>
-        <a href="tel:+201123551527" class="contact-card">
-          <div class="cc-icon" style="background:rgba(6,182,212,0.2)">📱</div>
-          <div><div class="cc-label">Phone</div><div class="cc-val">+20 1123 551 527</div></div>
-        </a>
-        <div class="contact-card">
-          <div class="cc-icon" style="background:rgba(245,158,11,0.2)">📍</div>
-          <div><div class="cc-label">Location</div><div class="cc-val">Cairo, Egypt</div></div>
-        </div>
         <a href="https://linkedin.com/in/mohamedyounis15" target="_blank" class="contact-card">
           <div class="cc-icon" style="background:rgba(236,72,153,0.2)">💼</div>
-          <div><div class="cc-label">LinkedIn</div><div class="cc-val">linkedin.com/in/mohamedyounis15</div></div>
-        </a>
-        <a href="https://github.com/mohamedyounis10" target="_blank" class="contact-card">
-          <div class="cc-icon" style="background:rgba(255,255,255,0.08)">🐙</div>
-          <div><div class="cc-label">GitHub</div><div class="cc-val">github.com/mohamedyounis10</div></div>
-        </a>
-        <a href="https://kaggle.com/mohamedyounis15" target="_blank" class="contact-card">
-          <div class="cc-icon" style="background:rgba(6,182,212,0.15)">📊</div>
-          <div><div class="cc-label">Kaggle</div><div class="cc-val">kaggle.com/mohamedyounis15</div></div>
+          <div><div class="cc-label">LinkedIn</div><div class="cc-val">mohamedyounis15</div></div>
         </a>
       </div>
       <div class="ripple-wrap">
-        <div class="ripple"></div>
         <div class="ripple"></div>
         <div class="ripple"></div>
         <div class="ripple-avatar">MYM</div>
@@ -945,63 +769,76 @@
     </div>
   </div>
 </section>
+
 <footer>
-  <p>Designed & Built by <strong>Mohamed Younis Mohamed</strong> · ML Engineer & AI Developer · Cairo, Egypt</p>
+  <p>Built with 💻 & ☕ by <strong>Mohamed Younis</strong> · 2026</p>
 </footer>
+
 <script>
-// ---- CURSOR ----
+// ---- CURSOR (Only if not mobile) ----
 const dot = document.getElementById('cursor-dot');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  dot.style.left=mx+'px';dot.style.top=my+'px';
-});
-function animRing(){
-  rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
+
+if(window.innerWidth > 900) {
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    dot.style.left=mx+'px'; dot.style.top=my+'px';
+  });
+  function animRing(){
+    rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='var(--cyan)'});
+    el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='var(--pink)'});
+  });
 }
-animRing();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='var(--cyan)'});
-  el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='var(--pink)'});
-});
+
 // ---- LOADER ----
 window.addEventListener('load',()=>{
   setTimeout(()=>{
     document.getElementById('loader').classList.add('fade-out');
-    setTimeout(()=>{
-      document.getElementById('navbar').classList.add('visible');
-    },400);
-  },2200);
+    setTimeout(()=>document.getElementById('navbar').classList.add('visible'), 400);
+  },2000);
 });
-// ---- PARTICLES ----
+
+// ---- PARTICLES (Performance Optimized) ----
 const canvas=document.getElementById('particle-canvas');
 const ctx=canvas.getContext('2d');
-const COLORS=['#818cf8','#ec4899','#06b6d4','#f59e0b'];
+const COLORS=['#818cf8','#ec4899','#06b6d4'];
 let W,H,particles=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
-resize();window.addEventListener('resize',()=>{resize();initParticles()});
+
+function resize(){
+  W=canvas.width=window.innerWidth;
+  H=canvas.height=window.innerHeight;
+  initParticles();
+}
+window.addEventListener('resize', resize);
+resize();
+
 function initParticles(){
   particles=[];
-  const n=Math.floor(W*H/14000);
+  // Reduce particles on mobile for better FPS
+  const density = window.innerWidth < 600 ? 25000 : 14000;
+  const n=Math.floor(W*H/density);
   for(let i=0;i<n;i++){
     particles.push({
-      x:Math.random()*W,y:Math.random()*H,
-      vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,
-      r:Math.random()*2+1,
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4,
+      r:Math.random()*1.5+1,
       color:COLORS[Math.floor(Math.random()*COLORS.length)],
-      alpha:Math.random()*0.6+0.2
+      alpha:Math.random()*0.5+0.2
     });
   }
 }
-initParticles();
+
 function drawParticles(){
   ctx.clearRect(0,0,W,H);
-  for(let i=0;i<particles.length;i++){
-    const p=particles[i];
-    p.x+=p.vx;p.y+=p.vy;
+  particles.forEach((p,i)=>{
+    p.x+=p.vx; p.y+=p.vy;
     if(p.x<0||p.x>W)p.vx*=-1;
     if(p.y<0||p.y>H)p.vy*=-1;
     ctx.beginPath();
@@ -1009,48 +846,31 @@ function drawParticles(){
     ctx.fillStyle=p.color;
     ctx.globalAlpha=p.alpha;
     ctx.fill();
-    for(let j=i+1;j<particles.length;j++){
-      const q=particles[j];
-      const dx=p.x-q.x,dy=p.y-q.y;
-      const dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<120){
-        ctx.beginPath();
-        ctx.moveTo(p.x,p.y);
-        ctx.lineTo(q.x,q.y);
-        ctx.strokeStyle=p.color;
-        ctx.globalAlpha=(1-dist/120)*0.15;
-        ctx.lineWidth=0.5;
-        ctx.stroke();
-      }
-    }
-  }
-  ctx.globalAlpha=1;
+  });
   requestAnimationFrame(drawParticles);
 }
 drawParticles();
-// ---- SKILL BARS ----
-const skillObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('.skill-fill').forEach(bar=>{
-        bar.style.width=bar.dataset.pct+'%';
-        bar.classList.add('animated');
-      });
-      skillObs.disconnect();
-    }
-  });
-},{threshold:0.3});
-const skillSection=document.getElementById('skill-bars');
-if(skillSection)skillObs.observe(skillSection);
-// ---- SCROLL REVEAL ----
+
+// ---- INTERSECTION OBSERVER (Reveals) ----
 const revealObs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
     if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add('revealed'),i*80);
+      setTimeout(()=>e.target.classList.add('revealed'), i*100);
     }
   });
-},{threshold:0.15});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.timeline-item,.proj-card,.edu-card').forEach(el=>revealObs.observe(el));
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.timeline-item,.proj-card,.edu-card').forEach(el=>revealObs.observe(el));
+
+// Skill bars trigger
+const skillObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    document.querySelectorAll('.skill-fill').forEach(bar=>{
+      bar.style.width=bar.dataset.pct+'%';
+      bar.classList.add('animated');
+    });
+  }
+});
+skillObs.observe(document.getElementById('skills'));
 </script>
 </body>
 </html>
