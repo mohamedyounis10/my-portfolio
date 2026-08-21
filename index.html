@@ -439,11 +439,9 @@
     grid-template-columns:repeat(6,1fr);
     gap:2rem;
   }
-  .projects-grid .proj-card:nth-child(1){grid-column:span 2}
-  .projects-grid .proj-card:nth-child(2){grid-column:span 2}
-  .projects-grid .proj-card:nth-child(3){grid-column:span 2}
-  .projects-grid .proj-card:nth-child(4){grid-column:2/span 2}
-  .projects-grid .proj-card:nth-child(5){grid-column:span 2}
+  .projects-grid .proj-card {
+    grid-column: span 2;
+  }
   .proj-card{
     background:rgba(15,15,35,0.6);
     border:1px solid rgba(79,70,229,0.2);
@@ -959,6 +957,14 @@
     <!-- AI & ML TAB -->
     <div class="proj-tab-content active" id="tab-ai">
       <div class="projects-grid">
+        <div class="proj-card reveal" onclick="window.open('https://github.com/mohamedyounis10/Egyptian-Car-Plates-Detection-and-OCR', '_blank')">
+          <span class="proj-emoji">🚗</span>
+          <div class="proj-title">Egyptian Car Plates Detection & OCR</div>
+          <div class="proj-desc">End-to-end CV pipeline to localize and extract Arabic characters from Egyptian license plates using YOLO for real-time tracking and Custom CNNs, deployed via Streamlit.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">YOLO</span><span class="proj-tag">Custom CNN</span><span class="proj-tag">Streamlit</span><span class="proj-tag">PyTorch</span><span class="proj-tag">OpenCV</span>
+          </div>
+        </div>
         <div class="proj-card reveal">
           <span class="proj-emoji">🔍</span>
           <div class="proj-title">YouTube Comment Toxicity Detector</div>
@@ -1171,7 +1177,7 @@ function animRing(){
   requestAnimationFrame(animRing);
 }
 animRing();
-document.querySelectorAll('a,button').forEach(el=>{
+document.querySelectorAll('a,button,.proj-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='var(--cyan)'});
   el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='var(--pink)'});
 });
